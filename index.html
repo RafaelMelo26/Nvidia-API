@@ -34,21 +34,42 @@
         <ul class="nav-right">
           <li>Drivers</li>
           <li>Suporte</li>
-          <button class="login">login</button>
+          <button class="login visible" id="button-login" onclick="abreLogin()">
+            login
+          </button>
+          <button class="logout" id="button-logout" onclick="deslogar()">
+            logout
+          </button>
         </ul>
       </nav>
     </header>
-    <div class="modal-login">
+    <div class="modal-login" id="modal-login">
       <div class="content-itens-modal">
+        <button class="exit" onclick="fechaLogin()">X</button>
         <h1>Login</h1>
-        <div class="content-inputs">
+        <form class="content-inputs" onsubmit="logar(event)">
           <h2>Email</h2>
-          <input class="input" />
+          <input
+            class="input"
+            required
+            minlength="3"
+            type="email"
+            id="input-email"
+            placeholder="nome@email.com"
+          />
+          <div class="espace-inputs"></div>
           <h2>Senha</h2>
-          <input class="input" />
-        </div>
-        <button class="Continue">Enter</button>
-        <button class="Exit">Close</button>
+          <input
+            class="input"
+            required
+            minlength="3"
+            type="password"
+            id="input-password"
+            placeholder="password"
+          />
+          <div class="espace-inputs"></div>
+          <button class="enter" type="submit">Enter</button>
+        </form>
       </div>
     </div>
     <div class="image-container-desktop">
@@ -90,6 +111,19 @@
         </div>
         <div class="botao-square"><img src="assets/Seta-Direita.svg" /></div>
       </div>
+      <div class="content-API">
+        <form class="searchAPI" id="searchAPI">
+          <input
+            class="input-search"
+            required
+            type="search"
+            id="input-search"
+            placeholder="nome@email.com"
+          />
+          <button class="search" type="submit">Go</button>
+        </form>
+      </div>
     </div>
+    <script src="script.js"></script>
   </body>
 </html>

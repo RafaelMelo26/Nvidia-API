@@ -119,6 +119,16 @@ body {
 }
 
 .nav-right .login {
+  display: none;
+  background: rgba(0, 0, 0, 0);
+  border-color: rgba(0, 0, 0, 0);
+  cursor: pointer;
+  font-size: 16px;
+  color: #666666;
+}
+
+.nav-right .logout {
+  display: none;
   background: rgba(0, 0, 0, 0);
   border-color: rgba(0, 0, 0, 0);
   cursor: pointer;
@@ -130,7 +140,7 @@ body {
   position: absolute;
   justify-content: center;
   align-items: center;
-  display: flex;
+  display: none;
   width: 100%;
   height: 100%;
   background-color: #dddddd;
@@ -151,50 +161,59 @@ body {
 .content-itens-modal h1 {
   color: #000000;
   font-size: 40px;
-  padding-top: 40px;
+  padding-top: 20px;
 }
 
 .content-itens-modal .content-inputs {
+  display: flex;
+  flex-direction: column;
   width: 60%;
   height: 50%;
+  justify-content: center;
 }
 
-.content-itens-modal h2 {
+.content-inputs h2 {
   color: #000000;
   font-size: 14px;
-  padding-top: 40px;
-  padding-left: 0;
+  padding-left: 5px;
 }
 
-.content-itens-modal input {
+.content-inputs input {
   color: #000000;
   width: 100%;
   height: 8%;
+  border-radius: 8px;
 }
 
-.content-itens-modal .Continue {
+.content-inputs .espace-inputs {
+  height: 10%;
+}
+
+.content-inputs .enter {
   background: #76b900;
   border-color: #76b900;
   border-radius: 5px;
   cursor: pointer;
   font-size: 20px;
   color: #000000;
-  width: 20%;
-  height: 10%;
-  box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.2);
+  width: 30%;
+  height: 20%;
+  align-self: center;
+  box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.2);
 }
 
-.content-itens-modal .Exit {
-  background: rgb(251, 62, 62);
-  border-color: rgb(251, 62, 62);
-  border-radius: 5px;
-  margin-top: 2%;
+.content-itens-modal .exit {
+  background: #000000;
+  border-color: #000000;
+  border-radius: 1000px;
+  margin-top: 4%;
+  margin-left: 80%;
   cursor: pointer;
-  font-size: 20px;
-  color: #000000;
-  width: 16%;
-  height: 6%;
-  box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.2);
+  color: #ffffff;
+  font-size: 10px;
+  width: 4%;
+  height: 4%;
+  box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.2);
 }
 
 .image-container-desktop {
@@ -332,6 +351,11 @@ body {
 
 .content-square-desktop .botao-square {
   display: none;
+}
+
+.nav-right .visible,
+.visible {
+  display: flex;
 }
 
 @media (max-width: 1300px) {
