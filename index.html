@@ -111,17 +111,23 @@
         </div>
         <div class="botao-square"><img src="assets/Seta-Direita.svg" /></div>
       </div>
-      <div class="content-API">
-        <form class="searchAPI" id="searchAPI">
+      <div class="content-API" id="content-API">
+        <form class="search-API" onsubmit="pesquisar(event)">
           <input
             class="input-search"
             required
             type="search"
             id="input-search"
-            placeholder="nome@email.com"
+            placeholder="Hearthstone card"
           />
-          <button class="search" type="submit">Go</button>
+          <button class="search-card" type="submit">search</button>
         </form>
+        <div class="content-card" content-card></div>
+        <template card-template>
+          <div class="card">
+            <img class="card-image" src="" card-image />
+          </div>
+        </template>
       </div>
     </div>
     <script src="script.js"></script>
