@@ -22,6 +22,8 @@ function logar(event) {
         document.getElementById("button-login").classList.remove("visible");
         document.getElementById("button-logout").classList.add("visible");
         document.getElementById("content-API").classList.add("visible");
+      } else {
+        alert("Login inválido.");
       }
     })
     .catch((error) => {
