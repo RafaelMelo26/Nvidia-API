@@ -23,7 +23,7 @@ function logar(event) {
         document.getElementById("button-logout").classList.add("visible");
         document.getElementById("content-API").classList.add("visible");
       } else {
-        alert("Login inválido.");
+        document.getElementById("erro-login").classList.add("visible");
       }
     })
     .catch((error) => {
@@ -73,6 +73,7 @@ function pesquisar(event) {
     .then((response) => {
       response.forEach((element) => {
         if (element.img != null) {
+          document.getElementById("card-not-found").classList.remove("visible");
           const card = cardTemplate.content.cloneNode(true).children[0];
           const cardImage = card.querySelector("[card-image]");
           cardImage.src = element.img;
@@ -81,6 +82,6 @@ function pesquisar(event) {
       });
     })
     .catch((err) => {
-      alert("Carta não encontrada.");
+      document.getElementById("card-not-found").classList.add("visible");
     });
 }

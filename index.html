@@ -68,6 +68,7 @@
             placeholder="password"
           />
           <div class="espace-inputs"></div>
+          <h3 class="erro-login" id="erro-login">Login inválido.</h3>
           <button class="enter" type="submit">Enter</button>
         </form>
       </div>
@@ -118,10 +119,13 @@
             required
             type="search"
             id="input-search"
-            placeholder="Hearthstone card (Ex: leeroy, gold, wizard)"
+            placeholder="Hearthstone card (Ex: leeroy, gold, magic, wizard)"
           />
           <button class="search-card" type="submit">search</button>
         </form>
+        <h3 class="card-not-found" id="card-not-found">
+          Carta não encontrada.
+        </h3>
         <div class="content-card" content-card></div>
         <template card-template>
           <div class="card">

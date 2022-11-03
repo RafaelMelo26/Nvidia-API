@@ -167,8 +167,8 @@ body {
 .content-itens-modal .content-inputs {
   display: flex;
   flex-direction: column;
-  width: 60%;
-  height: 50%;
+  width: 70%;
+  height: 60%;
   justify-content: center;
 }
 
@@ -187,6 +187,14 @@ body {
 
 .content-inputs .espace-inputs {
   height: 10%;
+}
+
+.content-inputs .erro-login {
+  display: none;
+  align-self: center;
+  color: red;
+  font-size: 18px;
+  padding-bottom: 20px;
 }
 
 .content-inputs .enter {
@@ -393,7 +401,7 @@ body {
   flex-direction: row;
   justify-content: center;
   min-height: 60vh;
-  width: 80vw;
+  width: 75vw;
   flex-wrap: wrap;
 }
 
@@ -401,9 +409,16 @@ body {
   height: 200px;
 }
 
+.content-API .card-not-found {
+  display: none;
+  color: red;
+}
+
 .nav-right .visible,
+.content-inputs .visible,
+.content-card .visible,
 .visible {
-  display: flex;
+  display: flex !important;
 }
 
 @media (max-width: 1300px) {
