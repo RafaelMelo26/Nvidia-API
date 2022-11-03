@@ -416,9 +416,9 @@ body {
 
 .nav-right .visible,
 .content-inputs .visible,
-.content-card .visible,
+.content-API .visible,
 .visible {
-  display: flex !important;
+  display: flex;
 }
 
 @media (max-width: 1300px) {
