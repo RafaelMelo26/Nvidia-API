@@ -69,7 +69,37 @@
           />
           <div class="espace-inputs"></div>
           <h3 class="erro-login" id="erro-login">Login inválido.</h3>
-          <button class="enter" type="submit">Enter</button>
+          <button class="entrar" type="submit">Entrar</button>
+        </form>
+        <button class="cadastrar" onclick="abreRegistro()">Cadastrar-se</button>
+      </div>
+    </div>
+    <div class="modal-register" id="modal-register">
+      <div class="content-itens-modal-register">
+        <button class="exit-register" onclick="fechaRegistro()">X</button>
+        <h1>Cadastro</h1>
+        <form class="content-inputs-register" onsubmit="cadastrar(event)">
+          <h2>Email</h2>
+          <input
+            class="input-register"
+            required
+            minlength="3"
+            type="email"
+            id="input-email-register"
+            placeholder="nome@email.com"
+          />
+          <div class="espace-inputs-register"></div>
+          <h2>Senha</h2>
+          <input
+            class="input-register"
+            required
+            minlength="3"
+            type="password"
+            id="input-password-register"
+            placeholder="password"
+          />
+          <div class="espace-inputs-register"></div>
+          <button class="cadastro" type="submit">Cadastrar</button>
         </form>
       </div>
     </div>
@@ -112,11 +142,14 @@
         </div>
         <div class="botao-square"><img src="assets/Seta-Direita.svg" /></div>
       </div>
-      <div class="content-API" id="content-API">
+      <div class="content-API-proj2" id="content-API-proj2">
+        <div class="line"></div>
+        <h1>PROJETO 2</h1>
         <form class="search-API" onsubmit="pesquisar(event)">
           <input
             class="input-search"
             required
+            minlength="3"
             type="search"
             id="input-search"
             placeholder="Hearthstone card (Ex: leeroy, gold, magic, wizard)"
@@ -132,6 +165,10 @@
             <img class="card-image" src="" card-image />
           </div>
         </template>
+      </div>
+      <div class="content-API-proj3" id="content-API-proj3">
+        <div class="line"></div>
+        <h1>PROJETO 3</h1>
       </div>
     </div>
     <script src="script.js"></script>

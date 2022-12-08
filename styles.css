@@ -178,7 +178,7 @@ body {
   padding-left: 5px;
 }
 
-.content-inputs input {
+.content-inputs .input {
   color: #000000;
   width: 100%;
   height: 8%;
@@ -197,20 +197,124 @@ body {
   padding-bottom: 20px;
 }
 
-.content-inputs .enter {
-  background: #76b900;
-  border-color: #76b900;
+.content-inputs .entrar {
+  border-color: #000000;
   border-radius: 5px;
+  align-self: center;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 14px;
   color: #000000;
   width: 30%;
-  height: 20%;
-  align-self: center;
+  height: 16%;
   box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.2);
 }
 
+.cadastrar {
+  border-color: #000000;
+  border-radius: 5px;
+  align-self: center;
+  cursor: pointer;
+  font-size: 14px;
+  color: #000000;
+  width: 30%;
+  height: 12%;
+  box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.2);
+  margin-bottom: 10%;
+}
+
 .content-itens-modal .exit {
+  background: #000000;
+  border-color: #000000;
+  border-radius: 1000px;
+  margin-top: 4%;
+  margin-left: 80%;
+  cursor: pointer;
+  color: #ffffff;
+  font-size: 10px;
+  width: 4%;
+  height: 4%;
+  box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.2);
+}
+
+.modal-register {
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background-color: #dddddd;
+  z-index: 2000;
+}
+
+.content-itens-modal-register {
+  position: absolute;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  height: 50%;
+  background-color: #ffffff;
+  box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.2);
+}
+
+.content-itens-modal-register h1 {
+  color: #000000;
+  font-size: 40px;
+  padding-top: 20px;
+}
+
+.content-itens-modal-register .content-inputs-register {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  height: 60%;
+  justify-content: center;
+}
+
+.content-inputs-register h2 {
+  color: #000000;
+  font-size: 14px;
+  padding-left: 5px;
+}
+
+.content-inputs-register .input-register {
+  color: #000000;
+  width: 100%;
+  height: 8%;
+  border-radius: 8px;
+}
+
+.content-inputs-register .espace-inputs-register {
+  height: 10%;
+}
+
+.content-inputs-register .entrar {
+  border-color: #000000;
+  border-radius: 5px;
+  align-self: center;
+  cursor: pointer;
+  font-size: 14px;
+  color: #000000;
+  width: 30%;
+  height: 16%;
+  box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.2);
+}
+
+.cadastro {
+  border-color: #000000;
+  border-radius: 5px;
+  align-self: center;
+  cursor: pointer;
+  font-size: 14px;
+  color: #000000;
+  width: 50%;
+  height: 20%;
+  box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+}
+
+.content-itens-modal-register .exit-register {
   background: #000000;
   border-color: #000000;
   border-radius: 1000px;
@@ -361,7 +465,13 @@ body {
   display: none;
 }
 
-.content-API {
+.line {
+  width: 100vw;
+  height: 2px;
+  background-color: #76b900;
+}
+
+.content-API-proj2 {
   display: none;
   flex-direction: column;
   justify-content: center;
@@ -371,7 +481,11 @@ body {
   padding-bottom: 100px;
 }
 
-.content-API .search-API {
+.content-API-proj2 h1 {
+  padding: 2%;
+}
+
+.content-API-proj2 .search-API {
   display: flex;
   flex-direction: row;
   width: 65%;
@@ -400,7 +514,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  min-height: 60vh;
+  min-height: 20vh;
   width: 75vw;
   flex-wrap: wrap;
 }
@@ -409,14 +523,29 @@ body {
   height: 200px;
 }
 
-.content-API .card-not-found {
+.content-API-proj2 .card-not-found {
   display: none;
   color: red;
 }
 
+.content-API-proj3 {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 60px;
+  width: 100%;
+  padding-bottom: 100px;
+}
+
+.content-API-proj3 h1 {
+  padding: 2%;
+}
+
 .nav-right .visible,
 .content-inputs .visible,
-.content-API .visible,
+.content-API-proj2 .visible,
+.content-API-proj3 .visible,
 .visible {
   display: flex;
 }

@@ -21,7 +21,8 @@ function logar(event) {
         document.getElementById("modal-login").classList.remove("visible");
         document.getElementById("button-login").classList.remove("visible");
         document.getElementById("button-logout").classList.add("visible");
-        document.getElementById("content-API").classList.add("visible");
+        document.getElementById("content-API-proj2").classList.add("visible");
+        document.getElementById("content-API-proj3").classList.add("visible");
       } else {
         document.getElementById("erro-login").classList.add("visible");
       }
@@ -31,10 +32,17 @@ function logar(event) {
     });
 }
 
+function cadastrar(event) {
+  event.preventDefault();
+
+  document.getElementById("modal-register").classList.remove("visible");
+}
+
 if (localStorage.getItem("token") != null) {
   document.getElementById("button-login").classList.remove("visible");
   document.getElementById("button-logout").classList.add("visible");
-  document.getElementById("content-API").classList.add("visible");
+  document.getElementById("content-API-proj2").classList.add("visible");
+  document.getElementById("content-API-proj3").classList.add("visible");
 }
 
 function abreLogin() {
@@ -43,6 +51,14 @@ function abreLogin() {
 
 function fechaLogin() {
   document.getElementById("modal-login").classList.remove("visible");
+}
+
+function abreRegistro() {
+  document.getElementById("modal-register").classList.add("visible");
+}
+
+function fechaRegistro() {
+  document.getElementById("modal-register").classList.remove("visible");
 }
 
 function deslogar() {
