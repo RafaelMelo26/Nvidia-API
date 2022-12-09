@@ -219,7 +219,7 @@ body {
   width: 30%;
   height: 12%;
   box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.2);
-  margin-bottom: 10%;
+  margin-bottom: 20%;
 }
 
 .content-itens-modal .exit {
@@ -465,13 +465,7 @@ body {
   display: none;
 }
 
-.line {
-  width: 100vw;
-  height: 2px;
-  background-color: #76b900;
-}
-
-.content-API-proj2 {
+.content-API {
   display: none;
   flex-direction: column;
   justify-content: center;
@@ -481,11 +475,11 @@ body {
   padding-bottom: 100px;
 }
 
-.content-API-proj2 h1 {
+.content-API h1 {
   padding: 2%;
 }
 
-.content-API-proj2 .search-API {
+.content-API .search-API {
   display: flex;
   flex-direction: row;
   width: 65%;
@@ -523,29 +517,18 @@ body {
   height: 200px;
 }
 
-.content-API-proj2 .card-not-found {
+.content-API .card-not-found {
   display: none;
   color: red;
 }
 
-.content-API-proj3 {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding-top: 60px;
-  width: 100%;
-  padding-bottom: 100px;
-}
-
-.content-API-proj3 h1 {
-  padding: 2%;
+.blockScroll {
+  overflow: hidden;
 }
 
 .nav-right .visible,
 .content-inputs .visible,
-.content-API-proj2 .visible,
-.content-API-proj3 .visible,
+.content-API .visible,
 .visible {
   display: flex;
 }

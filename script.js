@@ -6,8 +6,8 @@ function logar(event) {
     password: this.document.getElementById("input-password").value,
   };
 
-  fetch("https://reqres.in/api/login", {
-    method: "POST", // or 'PUT'
+  fetch("http://localhost:5000/authLogin/login", {
+    method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
@@ -18,11 +18,7 @@ function logar(event) {
       console.log("Success:", data);
       if (!data.error) {
         localStorage.setItem("token", data.token);
-        document.getElementById("modal-login").classList.remove("visible");
-        document.getElementById("button-login").classList.remove("visible");
-        document.getElementById("button-logout").classList.add("visible");
-        document.getElementById("content-API-proj2").classList.add("visible");
-        document.getElementById("content-API-proj3").classList.add("visible");
+        window.location.reload();
       } else {
         document.getElementById("erro-login").classList.add("visible");
       }
@@ -35,30 +31,58 @@ function logar(event) {
 function cadastrar(event) {
   event.preventDefault();
 
-  document.getElementById("modal-register").classList.remove("visible");
+  const data = {
+    email: this.document.getElementById("input-email-register").value,
+    password: this.document.getElementById("input-password-register").value,
+  };
+
+  fetch("http://localhost:5000/authLogin/cadastro", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(data),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("Success:", data);
+      if (!data.error) {
+        localStorage.setItem("token", data.token);
+        window.location.reload();
+      } else {
+        //ISSO VAI CRIAR DPS
+        //document.getElementById("erro-login").classList.add("visible");
+      }
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
 }
 
 if (localStorage.getItem("token") != null) {
   document.getElementById("button-login").classList.remove("visible");
   document.getElementById("button-logout").classList.add("visible");
-  document.getElementById("content-API-proj2").classList.add("visible");
-  document.getElementById("content-API-proj3").classList.add("visible");
+  document.getElementById("content-API").classList.add("visible");
 }
 
 function abreLogin() {
   document.getElementById("modal-login").classList.add("visible");
+  document.body.classList.add("blockScroll");
 }
 
 function fechaLogin() {
   document.getElementById("modal-login").classList.remove("visible");
+  document.body.classList.remove("blockScroll");
 }
 
 function abreRegistro() {
   document.getElementById("modal-register").classList.add("visible");
+  document.body.classList.add("blockScroll");
 }
 
 function fechaRegistro() {
   document.getElementById("modal-register").classList.remove("visible");
+  document.body.classList.remove("blockScroll");
 }
 
 function deslogar() {
@@ -70,8 +94,7 @@ function pesquisar(event) {
   event.preventDefault();
 
   const name = this.document.getElementById("input-search").value;
-  const requestName =
-    "https://omgvamp-hearthstone-v1.p.rapidapi.com/cards/search/" + name;
+  const requestName = "http://localhost:5000/images";
   const cardTemplate = document.querySelector("[card-template]");
   const cardContainer = document.querySelector("[content-card]");
   const data = {
@@ -79,6 +102,7 @@ function pesquisar(event) {
     headers: {
       "X-RapidAPI-Key": "184021a6acmsh35a297e24f4750bp131fd2jsn47732ad2c6a3",
       "X-RapidAPI-Host": "omgvamp-hearthstone-v1.p.rapidapi.com",
+      token: localStorage.getItem("token"),
     },
   };
 
