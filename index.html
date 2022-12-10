@@ -99,7 +99,37 @@
             placeholder="password"
           />
           <div class="espace-inputs-register"></div>
+          <h3 class="erro-register" id="erro-register">Email já cadastrado.</h3>
           <button class="cadastro" type="submit">Cadastrar</button>
+        </form>
+      </div>
+    </div>
+    <div class="modal-admin" id="modal-admin">
+      <div class="content-itens-modal-admin">
+        <button class="exit-admin" onclick="fechaAdmin()">X</button>
+        <h1>Administração</h1>
+        <form class="content-inputs-admin" onsubmit="salvar(event)">
+          <h2>Nome da Imagem</h2>
+          <input
+            class="input-name-admin"
+            required
+            type="text"
+            id="input-name-admin"
+            placeholder="nome da imagem"
+          />
+          <div class="espace-inputs-admin"></div>
+          <h2>Imagem</h2>
+          <input
+            class="input-file-admin"
+            required
+            type="file"
+            id="input-file-admin"
+          />
+          <div class="espace-inputs-admin"></div>
+          <h3 class="aguarde-admin" id="aguarde-admin">Aguarde...</h3>
+          <h3 class="erro-admin" id="erro-admin">Tente novamente.</h3>
+          <div class="espace-inputs-admin"></div>
+          <button class="salvar" type="submit">Salvar</button>
         </form>
       </div>
     </div>
@@ -143,17 +173,19 @@
         <div class="botao-square"><img src="assets/Seta-Direita.svg" /></div>
       </div>
       <div class="content-API" id="content-API">
-        <form class="search-API" onsubmit="pesquisar(event)">
-          <input
-            class="input-search"
-            required
-            minlength="3"
-            type="search"
-            id="input-search"
-            placeholder="Hearthstone card (Ex: leeroy, gold, magic, wizard)"
-          />
-          <button class="search-card" type="submit">search</button>
-        </form>
+        <div class="content-search">
+          <button class="button-admin" onclick="abreAdmin()">+</button>
+          <form class="search-API" onsubmit="pesquisar(event)">
+            <input
+              class="input-search"
+              required
+              type="search"
+              id="input-search"
+              placeholder="Nome da imagem"
+            />
+            <button class="search-card" type="submit">search</button>
+          </form>
+        </div>
         <h3 class="card-not-found" id="card-not-found">
           Carta não encontrada.
         </h3>

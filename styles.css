@@ -137,7 +137,7 @@ body {
 }
 
 .modal-login {
-  position: absolute;
+  position: fixed;
   justify-content: center;
   align-items: center;
   display: none;
@@ -237,7 +237,7 @@ body {
 }
 
 .modal-register {
-  position: absolute;
+  position: fixed;
   justify-content: center;
   align-items: center;
   display: none;
@@ -289,19 +289,15 @@ body {
   height: 10%;
 }
 
-.content-inputs-register .entrar {
-  border-color: #000000;
-  border-radius: 5px;
+.content-inputs-register .erro-register {
+  display: none;
   align-self: center;
-  cursor: pointer;
-  font-size: 14px;
-  color: #000000;
-  width: 30%;
-  height: 16%;
-  box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.2);
+  color: red;
+  font-size: 18px;
+  padding-bottom: 20px;
 }
 
-.cadastro {
+.content-inputs-register .cadastro {
   border-color: #000000;
   border-radius: 5px;
   align-self: center;
@@ -315,6 +311,103 @@ body {
 }
 
 .content-itens-modal-register .exit-register {
+  background: #000000;
+  border-color: #000000;
+  border-radius: 1000px;
+  margin-top: 4%;
+  margin-left: 80%;
+  cursor: pointer;
+  color: #ffffff;
+  font-size: 10px;
+  width: 4%;
+  height: 4%;
+  box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.2);
+}
+
+.modal-admin {
+  position: fixed;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  width: 100%;
+  height: 100%;
+  background-color: #dddddd;
+  z-index: 3000;
+}
+
+.content-itens-modal-admin {
+  position: absolute;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  height: 50%;
+  background-color: #ffffff;
+  box-shadow: 1px 1px 10px 1px rgba(0, 0, 0, 0.2);
+}
+
+.content-itens-modal-admin h1 {
+  color: #000000;
+  font-size: 40px;
+  padding-top: 20px;
+}
+
+.content-itens-modal-admin .content-inputs-admin {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  height: 60%;
+  justify-content: center;
+}
+
+.content-inputs-admin h2 {
+  color: #000000;
+  font-size: 14px;
+  padding-left: 5px;
+}
+
+.content-inputs-admin .input-name-admin {
+  color: #000000;
+  width: 100%;
+  height: 8%;
+  border-radius: 8px;
+}
+
+.content-inputs-admin .espace-inputs-admin {
+  height: 10%;
+}
+
+.content-inputs-admin .aguarde-admin {
+  display: none;
+  align-self: center;
+  color: red;
+  font-size: 18px;
+  padding-bottom: 20px;
+}
+
+.content-inputs-admin .erro-admin {
+  display: none;
+  align-self: center;
+  color: red;
+  font-size: 18px;
+  padding-bottom: 20px;
+}
+
+.content-inputs-admin .salvar {
+  border-color: #76b900;
+  background-color: #76b900;
+  border-radius: 5px;
+  align-self: center;
+  cursor: pointer;
+  font-size: 14px;
+  color: #000000;
+  width: 30%;
+  height: 15%;
+  box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+}
+
+.content-itens-modal-admin .exit-admin {
   background: #000000;
   border-color: #000000;
   border-radius: 1000px;
@@ -475,21 +568,37 @@ body {
   padding-bottom: 100px;
 }
 
-.content-API h1 {
-  padding: 2%;
+.content-search {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  height: 100px;
 }
 
-.content-API .search-API {
+.content-search .button-admin {
+  background-color: #76b900;
+  border-color: #76b900;
+  width: 30px;
+  height: 30px;
+  margin-right: 20px;
+  margin-left: 10px;
+  cursor: pointer;
+  border-radius: 8px;
+  color: #000000;
+}
+
+.content-search .search-API {
   display: flex;
   flex-direction: row;
   width: 65%;
-  height: 100px;
 }
 
 .search-API .input-search {
   color: #000000;
   width: 100%;
-  height: 30%;
+  height: 30px;
   border-radius: 8px;
   border-color: #76b900;
 }
@@ -497,11 +606,12 @@ body {
 .search-API .search-card {
   color: #000000;
   width: 10%;
-  height: 30%;
+  height: 30px;
   border-radius: 8px;
   margin-left: 2%;
   background-color: #76b900;
   border-color: #76b900;
+  cursor: pointer;
 }
 
 .content-card {
@@ -515,6 +625,7 @@ body {
 
 .card-image {
   height: 200px;
+  padding-left: 50px;
 }
 
 .content-API .card-not-found {
@@ -528,7 +639,10 @@ body {
 
 .nav-right .visible,
 .content-inputs .visible,
+.content-inputs-register .visible,
+.content-inputs-admin .visible,
 .content-API .visible,
+.card-not-found .visible,
 .visible {
   display: flex;
 }

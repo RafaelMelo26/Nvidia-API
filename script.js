@@ -1,3 +1,5 @@
+const urlbackend = "http://localhost:5000/";
+
 function logar(event) {
   event.preventDefault();
 
@@ -6,7 +8,7 @@ function logar(event) {
     password: this.document.getElementById("input-password").value,
   };
 
-  fetch("http://localhost:5000/authLogin/login", {
+  fetch(urlbackend + "authLogin/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -36,7 +38,7 @@ function cadastrar(event) {
     password: this.document.getElementById("input-password-register").value,
   };
 
-  fetch("http://localhost:5000/authLogin/cadastro", {
+  fetch(urlbackend + "authLogin/cadastro", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -50,8 +52,7 @@ function cadastrar(event) {
         localStorage.setItem("token", data.token);
         window.location.reload();
       } else {
-        //ISSO VAI CRIAR DPS
-        //document.getElementById("erro-login").classList.add("visible");
+        document.getElementById("erro-register").classList.add("visible");
       }
     })
     .catch((error) => {
@@ -85,16 +86,60 @@ function fechaRegistro() {
   document.body.classList.remove("blockScroll");
 }
 
+function abreAdmin() {
+  document.getElementById("modal-admin").classList.add("visible");
+  document.body.classList.add("blockScroll");
+}
+
+function fechaAdmin() {
+  document.getElementById("modal-admin").classList.remove("visible");
+  document.body.classList.remove("blockScroll");
+}
+
 function deslogar() {
   localStorage.removeItem("token");
   window.location.reload();
+}
+
+function salvar(event) {
+  event.preventDefault();
+  document.getElementById("aguarde-admin").classList.add("visible");
+
+  const data = {
+    name: this.document.getElementById("input-name-admin").value,
+    url: this.document.getElementById("input-file-admin").files[0],
+  };
+
+  const formData = new FormData();
+  formData.append("name", data.name);
+  formData.append("url", data.url);
+
+  fetch(urlbackend + "images", {
+    method: "POST",
+    headers: {
+      token: window.localStorage.getItem("token"),
+    },
+    body: formData,
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("Success:", data);
+      if (!data.error) {
+        window.location.reload();
+      } else {
+        document.getElementById("erro-admin").classList.add("visible");
+      }
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
 }
 
 function pesquisar(event) {
   event.preventDefault();
 
   const name = this.document.getElementById("input-search").value;
-  const requestName = "http://localhost:5000/images";
+  const requestName = urlbackend + "images/?name=" + name;
   const cardTemplate = document.querySelector("[card-template]");
   const cardContainer = document.querySelector("[content-card]");
   const data = {
@@ -111,17 +156,23 @@ function pesquisar(event) {
   fetch(requestName, data)
     .then((response) => response.json())
     .then((response) => {
-      response.forEach((element) => {
-        if (element.img != null) {
-          document.getElementById("card-not-found").classList.remove("visible");
-          const card = cardTemplate.content.cloneNode(true).children[0];
-          const cardImage = card.querySelector("[card-image]");
-          cardImage.src = element.img;
-          cardContainer.append(card);
-        }
-      });
+      if (response.length == 0) {
+        document.getElementById("card-not-found").classList.add("visible");
+      } else {
+        response.forEach((element) => {
+          if (element.url != null) {
+            document
+              .getElementById("card-not-found")
+              .classList.remove("visible");
+            const card = cardTemplate.content.cloneNode(true).children[0];
+            const cardImage = card.querySelector("[card-image]");
+            cardImage.src = element.url;
+            cardContainer.append(card);
+          }
+        });
+      }
     })
     .catch((err) => {
-      document.getElementById("card-not-found").classList.add("visible");
+      console.log(err);
     });
 }
