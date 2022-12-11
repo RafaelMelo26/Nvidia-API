@@ -1,4 +1,5 @@
-const urlbackend = "https://nvidiabackend.onrender.com/";
+//const urlbackend = "https://nvidiabackend.onrender.com/";
+const urlbackend = "http://localhost:5000/";
 
 function logar(event) {
   event.preventDefault();
@@ -60,47 +61,6 @@ function cadastrar(event) {
     });
 }
 
-if (localStorage.getItem("token") != null) {
-  document.getElementById("button-login").classList.remove("visible");
-  document.getElementById("button-logout").classList.add("visible");
-  document.getElementById("content-API").classList.add("visible");
-}
-
-function abreLogin() {
-  document.getElementById("modal-login").classList.add("visible");
-  document.body.classList.add("blockScroll");
-}
-
-function fechaLogin() {
-  document.getElementById("modal-login").classList.remove("visible");
-  document.body.classList.remove("blockScroll");
-}
-
-function abreRegistro() {
-  document.getElementById("modal-register").classList.add("visible");
-  document.body.classList.add("blockScroll");
-}
-
-function fechaRegistro() {
-  document.getElementById("modal-register").classList.remove("visible");
-  document.body.classList.remove("blockScroll");
-}
-
-function abreAdmin() {
-  document.getElementById("modal-admin").classList.add("visible");
-  document.body.classList.add("blockScroll");
-}
-
-function fechaAdmin() {
-  document.getElementById("modal-admin").classList.remove("visible");
-  document.body.classList.remove("blockScroll");
-}
-
-function deslogar() {
-  localStorage.removeItem("token");
-  window.location.reload();
-}
-
 function salvar(event) {
   event.preventDefault();
   document.getElementById("aguarde-admin").classList.add("visible");
@@ -127,6 +87,7 @@ function salvar(event) {
       if (!data.error) {
         window.location.reload();
       } else {
+        ocument.getElementById("aguarde-admin").classList.remove("visible");
         document.getElementById("erro-admin").classList.add("visible");
       }
     })
@@ -175,4 +136,45 @@ function pesquisar(event) {
     .catch((err) => {
       console.log(err);
     });
+}
+
+if (localStorage.getItem("token") != null) {
+  document.getElementById("button-login").classList.remove("visible");
+  document.getElementById("button-logout").classList.add("visible");
+  document.getElementById("content-API").classList.add("visible");
+}
+
+function abreLogin() {
+  document.getElementById("modal-login").classList.add("visible");
+  document.body.classList.add("blockScroll");
+}
+
+function fechaLogin() {
+  document.getElementById("modal-login").classList.remove("visible");
+  document.body.classList.remove("blockScroll");
+}
+
+function abreRegistro() {
+  document.getElementById("modal-register").classList.add("visible");
+  document.body.classList.add("blockScroll");
+}
+
+function fechaRegistro() {
+  document.getElementById("modal-register").classList.remove("visible");
+  document.body.classList.remove("blockScroll");
+}
+
+function abreAdmin() {
+  document.getElementById("modal-admin").classList.add("visible");
+  document.body.classList.add("blockScroll");
+}
+
+function fechaAdmin() {
+  document.getElementById("modal-admin").classList.remove("visible");
+  document.body.classList.remove("blockScroll");
+}
+
+function deslogar() {
+  localStorage.removeItem("token");
+  window.location.reload();
 }
